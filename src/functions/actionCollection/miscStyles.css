@@ -1,0 +1,49 @@
+.--global-style {
+    display: block;
+}
+
+.--action-tip {
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    text-align: center;
+}
+
+.--action-tip-normal {
+
+}
+
+.--action-tip-wait {
+    background-color: #f0f0f0;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.--action-tip-wait::before {
+    content: " ";
+    border: none;
+    box-sizing: border-box;
+    width: 3em;
+    height: 3em;
+    border-radius: 1.5em;
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHZpZXdCb3g9IjAgMCAxMCAyMCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjIwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmYWEiPg0KICAgIDxwYXRoIGQ9Im0gMCwxMCBjIDIuNDI1LDAgMy4wMjYsMS41OSA1LDEuNTkgMS45NzQsMCAyLjUyOSwtMS41MiA1LC0xLjU5IFYgMjAgSCAwIFoiIHN0cm9rZT0ibm9uZSIgZmlsbD0iI2YwMCIgLz4NCjwvc3ZnPg==");
+    background-repeat: repeat;
+    background-size: 200%;
+    filter: hue-rotate(90deg) brightness(1.1);
+    animation: 17s linear 0s infinite --action-tip-wait-keyframes;
+}
+
+@keyframes --action-tip-wait-keyframes {
+    0% {
+        background-position: 0% 46%;
+    }
+    50% {
+        background-position: 2000% 66%;
+    }
+    100% {
+        background-position: 4000% 46%;
+    }
+}

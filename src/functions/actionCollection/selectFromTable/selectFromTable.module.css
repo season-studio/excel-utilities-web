@@ -1,0 +1,5 @@
+.tablePreview {
+    max-height: calc(50vh);
+    width: 100%;
+    overflow: auto;
+}

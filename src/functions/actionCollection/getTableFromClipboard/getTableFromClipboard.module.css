@@ -1,0 +1,13 @@
+.tablePreview {
+    max-height: calc(50vh);
+    width: 100%;
+    overflow: auto;
+}
+
+.tablePreview[d-has-table="1"]::before {
+    content: "预览: ";
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    background: #fff;
+}

@@ -1,0 +1,225 @@
+.actionList {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+    --step-background: #f3f3f3;
+    --step-block-indent: 0.5em;
+    --step-block-line-color: #f00;
+
+    :not(input) {
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    :global(.step-block) {
+        padding: 0;
+        border: 0;
+        margin: 0;
+        margin-left: var(--step-block-indent);
+        border-left: dashed 1px var(--step-block-line-color);
+        padding-left: 0.5em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    :global(.step) {
+        margin: 0.25em 0;
+        padding: 0.5em;
+        border-radius: 0.5em;
+        background: var(--step-background);
+
+        :global(.comment) {
+            font-size: 0.9em;
+            font-weight: lighter;
+            color: #070;
+        }
+    }
+
+    :global(.step) p {
+        margin: 0;
+    }
+
+    :global(.step) :not(input) {
+        cursor: pointer;
+    }
+
+    :global(.step-editbar) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 0.7em;
+    }
+
+    :global(.step-editbar) > * {
+        margin: 0 0.25em;
+        position: relative;
+    }
+
+    :global(.step-editbar-bottom) {
+        align-items: flex-start;
+    }
+
+    :global(.step-editbar-top) {
+        align-items: flex-end;
+    }
+
+    :global(.step-arg) {
+        padding: 0.25em 0.5em;
+        min-width: 2em;
+        background: #fff;
+        box-sizing: border-box;
+        border: dashed 1px #ddd;
+        display: inline-block;
+        margin: 0 0.1em;
+        min-height: 1.5em;
+        vertical-align: middle;
+
+        & i {
+            color: #26f;
+        }
+
+        [d-error="1"] {
+            color: #f00;
+        }
+
+        :global(.arg-btn) {
+            position: relative;
+            padding: 0.25em;
+            border: solid 1px #ccc;
+            border-radius: 0.25em;
+            margin: 0 0 0 0.25em;
+            cursor: pointer;
+            display: inline-flex;
+            background: linear-gradient(180deg, #eee, #fff);
+        }
+
+        :global(.arg-btn):hover {
+            background: linear-gradient(0deg, #eee, #fff);
+        }
+    
+        :global(.arg-btn):active {
+            background: #fff;
+        }
+    }
+
+    :global(.step-arg)[d-focus] {
+        border: solid 1px #999;
+    }
+}
+
+@keyframes referenceStepKeyframes {
+    0% {
+        box-shadow: 0px 0px 6px transparent;
+    }
+    50% {
+        box-shadow: 0px 0px 6px #666;
+    }
+    100% {
+        box-shadow: 0px 0px 6px transparent;
+    }
+}
+
+@keyframes focusReferenceStepKeyframes {
+    0% {
+        border: dashed 3px transparent;
+        box-shadow: 0px 0px 6px transparent;
+    }
+    50% {
+        border: dashed 3px var(--app-color);
+        box-shadow: 0px 0px 6px #666;
+    }
+    100% {
+        border: dashed 3px transparent;
+        box-shadow: 0px 0px 6px transparent;
+    }
+}
+
+@keyframes relationStepKeyframes {
+    0% {
+        border: solid 3px #000;
+    }
+    100% {
+        border: solid 3px #000;
+    }
+}
+
+@keyframes selectionStepKeyframes {
+    0% {
+        border: solid 3px var(--app-color);
+    }
+    100% {
+        border: solid 3px var(--app-color);
+    }
+}
+
+@keyframes invalidStepFocusKeyframes {
+    0% {
+        border: solid 3px transparent;
+        box-shadow: 0px 0px 6px transparent;
+    }
+    50% {
+        border: solid 3px #f00;
+        box-shadow: 0px 0px 6px #666;
+    }
+    100% {
+        border: solid 3px transparent;
+        box-shadow: 0px 0px 6px transparent;
+    }
+}
+
+.editPopupDialog {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 80vw;
+
+    :global(.buttons-bar) {
+        margin: 0.5em 0 0 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    :global(.buttons-bar) :global(button) {
+        margin: 0 0.5em;
+    }
+
+    :global(.help-button) {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        margin: 0.25em;
+        font-size: 0.75em;
+        text-align: center;
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 0.75em;
+        border: solid 1px #ddd;
+        color: #ccc;
+        background-color: rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+    }
+
+    :global(.help-button):hover {
+        color: #333;
+        border-color: #333;
+    }
+
+    :global(.help-button):hover::after {
+        content: attr(d-help-text);
+        position: absolute;
+        right: 0px;
+        top: calc(100% + 3px);
+        background: #fea;
+        border: solid 1px #ccc;
+        padding: 0.5em;
+        word-break: keep-all;
+        text-align: left;
+    }
+
+    :not(input) {
+        -ms-user-select: none;
+        user-select: none;
+    }
+}

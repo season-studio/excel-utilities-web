@@ -1,0 +1,169 @@
+.--global-style {
+    display: block;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    margin: 0;
+    --app-color: #548235;
+    --primary-color: #00AEFF;
+    --primary-color-2: #0093FF;
+    --primary-color-3: #07D;
+    --disabled-color: #aaa;
+    --disabled-color-2: #999;
+    --table-select-color: lightblue;
+}
+
+table {
+    border: solid 1px #aaa;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 0.25em;
+}
+
+button {
+    --button-face-color: var(--primary-color);
+    --button-border-color: var(--primary-color-2);
+    --button-face-color-hover: var(--primary-color-2);
+    --button-border-color-hover: var(--primary-color-3);
+    --button-text-color: #fff;
+    --button-text-color-hover: #fff;
+    background-color: var(--button-face-color);
+    border: solid 1px var(--button-border-color);
+    border-radius: 0.3em;
+    color: var(--button-text-color);
+    padding: 0.3em;
+    font-size: 1em;
+    position: relative;
+    margin: 0 0.5em;
+}
+
+button[d-type="optional"] {
+    --button-face-color: #fff;
+    --button-border-color: #aaa;
+    --button-face-color-hover: #f0f0f0;
+    --button-border-color-hover: #aaa;
+    --button-text-color: #333;
+    --button-text-color-hover: #333;
+}
+
+button:hover {
+    background-color: var(--button-face-color-hover);
+    border-color: var(--button-border-color-hover);
+    color: var(--button-text-color-hover);
+}
+
+button:active {
+    background-color: var(--button-face-color);
+    border-color: var(--button-border-color);
+    color: var(--button-text-color);
+}
+
+button:disabled {
+    background-color: var(--disabled-color);
+    border-color: var(--disabled-color-2);
+}
+
+.app {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh);
+    overflow: auto;
+}
+
+.app-title {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--app-color);
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5em;
+    font-size: 1.1em;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.app-title-content {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.app-title-buttons {
+    font-size: 0.7em;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.app-title-buttons > button {
+    margin-right: 0;
+}
+
+[d-tooltip]::after {
+    content: "";
+    opacity: 0;
+    transition: opacity 0.5s 1s;
+    z-index: 9999;
+}
+
+[d-tooltip]:hover::after {
+    content: attr(d-tooltip);
+    padding: 0.25em;
+    border: solid 1px #aaa;
+    text-wrap: nowrap;
+    white-space: nowrap;
+    background-color: antiquewhite;
+    box-sizing: border-box;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 1;
+    transform: translate(var(--tooltip-tx, 0), calc(var(--tooltip-ty, 0) + var(--tooltip-tt) * 3));
+    color: #000;
+    font-size: 0.9em;
+    font-weight: lighter;
+}
+
+[d-after-button] {
+    border: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+[d-after-button]::after {
+    content: attr(d-after-button);
+    position: absolute;
+    right: 2px;
+    min-width: 1em;
+    height: 1em;
+    line-height: 0.9em;
+    text-align: center;
+    color: var(--after-text-color, #fff);
+    background: var(--after-bg-color, #ccc);
+    pointer-events: auto;
+    border-radius: 1em;
+    cursor: pointer;
+    -ms-user-select: none;
+    user-select: none;
+    filter: opacity(0.5);
+}
+
+[d-after-button]:hover::after {
+    filter: opacity(1);
+}

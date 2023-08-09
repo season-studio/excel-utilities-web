@@ -1,0 +1,8 @@
+.inputLine {
+    display: flex;
+    flex-direction: row;
+}
+
+.inputBox {
+    flex-grow: 1;
+}

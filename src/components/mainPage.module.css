@@ -1,0 +1,143 @@
+.contextMenu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #fff;
+    border: solid 1px #999;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    filter: drop-shadow(0 0 4px #aaa);
+    color: #000;
+    display: none;
+
+    :global(.menu-item) {
+        border: solid 1px #aaa;
+        padding: 0.25em 1em;
+        background: linear-gradient(180deg, #eee, #fff);
+        cursor: pointer;
+        text-wrap: nowrap;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    :global(.menu-item):hover {
+        background: linear-gradient(0deg, #eee, #fff);
+    }
+
+    :global(.menu-item):active {
+        background: #fff;
+    }
+}
+
+
+.mainContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+    flex-grow: 1;
+
+    :global(.top-bar) {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    :global(.func-query-box) {
+        margin-left: 2em;
+        flex-grow: 1;
+    }
+    
+    :global(.func-query) {
+        border: solid 1px transparent;
+        border-radius: 0.25em;
+        text-align: right;
+        color: #aaa;
+        padding-right: 1.5em;
+        width: 100%
+    }
+    
+    :global(.func-query):focus {
+        color: #000;
+        border-color: #aaa;
+    }
+    
+    :global(.func-list) {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        overflow: auto;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        justify-items: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;
+
+        :global(.item) {
+            --font-color: #000;
+            margin: 0.5em;
+            padding: 0.5em 0;
+            border-radius: 0.5em;
+            cursor: pointer;
+            border: dashed 1px #ccc;
+            background-color: #f0f0f0;
+            color: var(--font-color);
+            -ms-user-select: none;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            & > p {
+                padding: 0 0.5em;
+                margin: 0;
+            }
+
+            & > code {
+                font-size: 0.7em;
+                margin-top: 0.5em;
+                color: #fff;
+                font-weight: bold;width: 100%;
+                text-align: center;
+                background-color: #000;
+                mix-blend-mode: overlay;
+            }
+        }
+
+        :global(.item):nth-child(6n+1) {
+            background-color: #FBE5D6
+        }
+        
+        :global(.item):nth-child(6n+2) {
+            background-color: #FFF2CC
+        }
+        
+        :global(.item):nth-child(6n+3) {
+            background-color: #E2F0D9
+        }
+        
+        :global(.item):nth-child(6n+4) {
+            background-color: #D7ECFF
+        }
+        
+        :global(.item):nth-child(6n+5) {
+            background-color: #EDEDFF
+        }
+        
+        :global(.item):nth-child(6n) {
+            background-color: #FFEDFF
+        }
+        
+        :global(.item):hover {
+            border: dashed 1px #999;
+            filter: drop-shadow(0 3px 3px #bbb);
+        }
+        
+        :global(.item):active {
+            border: solid 1px #444;
+        }
+    }
+}

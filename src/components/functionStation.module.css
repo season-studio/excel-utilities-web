@@ -1,0 +1,116 @@
+.funcStation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+    flex-grow: 1;
+    border: none;
+    overflow: auto;
+
+    :global(.step-results) {
+        width: 100%;
+        max-height: calc(50vh);
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        box-sizing: border-box;
+        font-size: 0.7em;
+        background-color: #f0f0f0;
+        padding: 0.5em;
+        border-radius: 0.5em;
+    }
+    
+    :global(.step-results)[d-shown="0"] {
+        position: absolute;
+        right: 0.5em;
+        background-color: transparent;
+        padding: 0;
+        width: auto;
+        border-radius: 0;
+    }
+    
+    :global(.step-results-header) {
+        position: sticky;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        top: 0;
+        z-index: 9;
+        background: #f0f0f0;
+    }
+    
+    [d-shown="0"] :global(.step-results-header) {
+        justify-content: flex-end;
+        background: transparent;
+    }
+    
+    :global(.step-results-list) {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    
+    [d-shown="0"] :global(.step-results-list) {
+        display: none;
+    }
+    
+    :global(.step-results-list) > div {
+        overflow-x: hidden;
+        text-wrap: nowrap;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+    
+    :global(.step-results-list) > div:hover {
+        background-color: #fff;
+    }
+    
+    :global(.step-station) {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.5em;
+    }
+    
+    :global(.step-end) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    :global(.step-error) {
+        color: #f00;
+    }
+    
+    :global(.final-result) {
+        border-radius: 0.5em;
+        padding: 0.5em;
+        background-color: #eee;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-x: auto;
+        margin: 0.5em 0;
+        text-align: center;
+        max-height: calc(50vh);
+    }
+}
+
+.funcStation[d-in-progress="1"] {
+    border-top: solid 4px;
+    border-image: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00) 1;
+    border-image-outset: 0px 0px 0px 0px;
+    animation: 4s linear 0s infinite func-progress-keyframes;
+}
+
+@keyframes func-progress-keyframes {
+    from {
+        border-image-outset: 0px 0px 0px calc(100vw);
+    }
+    to {
+        border-image-outset: 0px calc(100vw) 0px 0px;
+    }
+}
